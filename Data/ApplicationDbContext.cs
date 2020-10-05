@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ManufacturerApp.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,5 +13,8 @@ namespace ManufacturerApp.Data
             : base(options)
         {
         }
+
+
+        public DbSet<Manufacturer> Manufacturers { get; set; } //Manufacturers 테이블 생성
     }
 }

@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ManufacturerApp.Areas.Identity;
 using ManufacturerApp.Data;
+using ManufacturerApp.Models;
 
 namespace ManufacturerApp
 {
@@ -40,6 +41,9 @@ namespace ManufacturerApp
             services.AddServerSideBlazor();
             services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
             services.AddSingleton<WeatherForecastService>();
+
+            //DI Containerø° ¡÷¿‘
+            services.AddTransient<IManufacturersRepository, ManufacturersRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

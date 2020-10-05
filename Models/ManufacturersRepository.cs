@@ -33,7 +33,8 @@ namespace ManufacturerApp.Models
         //상세보기
         public async Task<Manufacturer> GetManufacturer(int id)
         {
-            return await _context.Manufacturers.Where(m => m.Id == id).SingleOrDefaultAsync(); // SingleOrDefaultAsync???
+            //return await _context.Manufacturers.Where(m => m.Id == id).SingleOrDefaultAsync(); // SingleOrDefaultAsync???
+            return await _context.Manufacturers.FindAsync(id); // SingleOrDefaultAsync???
         }
 
         //수정 
@@ -48,7 +49,8 @@ namespace ManufacturerApp.Models
         //삭제
         public async Task Deletemanufacturer(int id)
         {
-            var manufacturer = await _context.Manufacturers.Where(m => m.Id == id).SingleOrDefaultAsync();
+            //var manufacturer = await _context.Manufacturers.Where(m => m.Id == id).SingleOrDefaultAsync();
+            var manufacturer = await _context.Manufacturers.FindAsync(id);
             if (manufacturer != null)
             {
                 _context.Manufacturers.Remove(manufacturer);
